@@ -1,14 +1,17 @@
 def main():
     print("Welcome to the exponential calculator")
     number = int(input("Please give a number: \n"))
-    aux = 0
-    result = 1
+    aux = 1
+    base = 2
 
     while aux < number:
-        result *= 2
+        base *= 2
         aux += 1
 
-    print("The result is:", result)
+    if number == 0:
+        print("The result is: 1")
+    else:
+        print("The result is:", base)
     
 
 if __name__ == "__main__":
