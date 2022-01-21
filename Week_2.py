@@ -13,11 +13,42 @@ donde el usuario ingresará en qué figura está interesado.
 
 
 
-
 # import math
 
 
 # print("***WELCOME***")
+print("***Welcome***")
+print("This program will provide you a tool to calculate a figure's area")
+option=input("Enter:\n1.-Triangle.\n2.-Square.\n3.-Circle.\n")
+
+if option.isnumeric()==True:
+	if int(option)>=1 and int(option)<=3:
+		if int(option)==1:
+			print("Calculate the triangle's area:\n")
+			base=input("Enter the base:\n==>")
+			height=input("Enter the height:\n==>")
+			if base.isnumeric()== False and height.isnumeric()== False: 
+				print("The information entered is not valid")
+			else:
+				print("The triangule area is:", float(base)*float(height))
+		elif int(option)==2:
+			print("Calculate the square's area:\n")
+			side=input("Enter a square side:\n==>")
+			if side.isnumeric():
+				print("The square area is:", float(side**2))
+			else:
+				print("The informatio is not valid")
+		else:
+			print("Calculate the circle's area:\n")
+			radio=input("Enter the circle's radio:\n==>")
+			if radio.isnumeric():
+				print("The circle's area is", float(radio**2))
+			else:
+				Print("The information entered is not valid")
+	else:
+		print("The options entered is not registered")
+else:
+	print("The caracter entered is not valid")
 # print("This program will provide you a tool to calculate a figure's area")
 # option = input(
 #     "Enter:\n1.-Triangle.\n2.-Square.\n3.-Circle.\n")
