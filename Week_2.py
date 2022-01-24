@@ -19,10 +19,10 @@ donde el usuario ingresará en qué figura está interesado.
 # print("***WELCOME***")
 print("***Welcome***")
 print("This program will provide you a tool to calculate a figure's area")
-option=input("Enter:\n1.-Triangle.\n2.-Square.\n3.-Circle.\n")
+option=input("Enter:\n1.-Triangle.\n2.-Square.\n3.-Circle.\n4.-Rectangle\n5.-Ellipse\n6.-Rhombus")
 
 if option.isnumeric()==True:
-	if int(option)>=1 and int(option)<=3:
+	if int(option)>=1 and int(option)<=6:
 		if int(option)==1:
 			print("Calculate the triangle's area:\n")
 			base=input("Enter the base:\n==>")
@@ -38,15 +38,37 @@ if option.isnumeric()==True:
 				print("The square area is:", float(side**2))
 			else:
 				print("The informatio is not valid")
-		else:
+		elif int(option) ==3:
 			print("Calculate the circle's area:\n")
 			radio=input("Enter the circle's radio:\n==>")
 			if radio.isnumeric():
-				print("The circle's area is", float(radio**2))
+				print("The circle's area is", float(radio**2)*3,14)
 			else:
-				Print("The information entered is not valid")
-	else:
-		print("The options entered is not registered")
+				print("The information entered is not valid")
+		elif int(option) ==4:
+			print("Calculate the rectangle's area:\n")
+			base_rectangle=input("Enter the rectangle's base:\n==>")
+			height_rectangle=input("Enter the rectangle's height:\n==>")
+			if base_rectangle.isnumeric() == False and height_rectangle.isnumeric() == False:
+				print("The information entered is not valid")
+			else:
+				print("The rectangle's area is", float(base_rectangle)*float(height_rectangle))
+		elif int(option) ==5:
+			print("Calculate the ellipse's area:\n")
+			ellipse_radio_1=input("Enter the ellipse's radio 1:\n==>")
+			ellipse_radio_2=input("Enter the ellipse's radio 2:\n==>")
+			if ellipse_radio_1.isnumeric() == False and ellipse_radio_2.isnumeric() == False:
+				print("The information entered is not valid")
+			else:
+				print("The ellipse's area is", 3.14*float(ellipse_radio_1)*float(ellipse_radio_2))
+		else:
+			print("Calculate the rhombus's area:\n")
+			mayor_diagonal=input("Enter the rhombus's mayor diagonal:\n==>")
+			minor_diagonal=input("Enter the rhombus's minor diagonal:\n==>")
+			if mayor_diagonal.isnumeric() == False and minor_diagonal == False :
+				print("The information entered is not valid")
+			else:
+				print("The ellipse's area is", (float.mayor_diagonal*float.minor_diagonal)/2)
 else:
 	print("The caracter entered is not valid")
 # print("This program will provide you a tool to calculate a figure's area")
@@ -85,43 +107,12 @@ else:
 
 
 
-'''
-2.11
-PARIDAD
-Escribir un programa que pida al usuario un número entero y muestre por pantalla si es par o
-impar.
-'''
-
-# print("***WELCOME***")
-# print("This program will help you to know if a number is pair or odd... So:\n")
-# number= input("Please, introduce a number:\n===>")
-
-
-# if number.isnumeric():
-    
-#     if int(number)%2==0:
-#         print("The number is par")
-#     else:
-#         print("The number is impar")
-
-# else:
-#     print("What you introduced is not valid")
 
 
 
 
 
 
-'''
-2.12
-Discoteca
-Un discoteca requiere un programa para calcular el precio de sus entradas y te ha contratado para realizarlo. El programa debe preguntar al usuario la edad del cliente y mostrar el precio de la entrada.
-Si el cliente es menor de 18 años no puede entrar 
-Si tiene entre 18 y menor que 21 años debe pagar $60
-Si es mayor de 22 años, $70
-Si tiene 21 anios exacto, se le da un precio de $50.
-Como output se espera:
-	Imprimir el precio correspondiente a la edad del cliente. '''
 
 # print("***WELCOME***")
 # print("This software will help you to calculate the ticket's price taking into account the people's age.")
