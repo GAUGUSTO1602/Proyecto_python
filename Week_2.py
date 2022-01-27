@@ -71,37 +71,7 @@ if option.isnumeric()==True:
 				print("The ellipse's area is", (float.mayor_diagonal*float.minor_diagonal)/2)
 else:
 	print("The caracter entered is not valid")
-# print("This program will provide you a tool to calculate a figure's area")
-# option = input(
-#     "Enter:\n1.-Triangle.\n2.-Square.\n3.-Circle.\n")
 
-# if option.isnumeric():
-#     option=int(option)
-
-#     if option>=1 and option<=3:
-
-#         if  option==1:
-#             print("Calculate the triangle's area:\n")
-
-#             base=input("Enter the base:\n===> ")
-#             height=input("Enter the height:\n===> ")
-
-#             print(f"The triangle's area is:{(int(base)*int(height)) /2}")
-
-#         elif option==2:
-#             print("Calculate the square's area:\n")
-#             side = input("Enter the side:\n===> ")
-#             print(f"The squared's area is:{int(side)**2}")
-			
-#         elif option==3:
-#             print("Calculate the circle's area:\n")
-#             radio = input("Enter the radio:\n===> ")
-#             print(f"The circle's area is:{((int(radio)**2)*math.pi)}")
-
-#     else:
-#         print("The opcion entered is wrong")
-# else:
-#     print("Character entered as option is wrong.")
 
 
 
@@ -144,12 +114,6 @@ else:
 
 #TAREAS DE REDACCION
 
-'''
-2.2
-PALÍNDROMOS
-Una palabra o número palíndromo son aquellos que se leen igual de izquierda a derecha. Por ejemplo: 101 es un número palíndromo, y 236 no lo es. Ana es una palabra palíndroma y pan no lo es.
-Diseña un programa que determine si un número o palabra ingresados por teclado, son palíndromos o no.
-'''
 
 
 '''
