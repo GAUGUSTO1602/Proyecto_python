@@ -1,21 +1,25 @@
-class sillas():
-    def __init__(self, total):
+def es_narcisista(numero):
+    numero_como_cadena = str(numero)
+    longitud_de_numero = len(numero_como_cadena)
+    suma = 0
+    for letra in numero_como_cadena:
+        # Convertir carácter a entero
+        cifra_actual = int(letra)
 
-        self.total = total
-    
-    def get_total(self):
-        return self.total
-    
-    def set_total(self, resta):
-        self.total -= resta
-        return self.total
+        # Elevar ese carácter a la potencia dada por la longitud del número
+        elevado = pow(cifra_actual, longitud_de_numero)
 
-total = 10
-silla = sillas(total)
-print(silla.get_total())
+        # El resultado lo añadimos a suma
+        suma = suma + elevado
+    # Comprobar si la suma al elevar es igual al número que recibimos
+    if numero == suma:
+        return True
+    else:
+        return False
 
-quitar = 4
+num = es_narcisista(32858465)
 
-silla.set_total(quitar)
-
-print(silla.get_total())
+if num == True:
+    print('ok')
+elif num == False:
+    print('makey')

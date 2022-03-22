@@ -1,11 +1,11 @@
 from utils import*
 from Saman_arena import*
 
-def evento_funciones(bd,msg):
+def evento_funciones(bd,msg, apertura_tickets):
     while True:
-        opt = validar_numero(msg)
-
+        
         while True:
+            opt = validar_numero(msg)
             if 1 <= opt <= 4:
                 break
             else:
@@ -40,7 +40,27 @@ def evento_funciones(bd,msg):
                 print(f'''Fecha del evento: {value["date"]}''')
                 print("-------------------------------------------------")
         elif opt == 2:
-            pass
+            print('')
+            while True:
+                opt_2 = validar_numero('¿Quire cerrar/abrir la tienda de tickets?\n1.Abrir\n2.Cerrar\n3.Salir\n--> ')
+                if 1 <= opt_2 <= 3:
+                    if opt_2 == 1:
+                        apertura_tickets = True
+                        print('')
+                        print('VENTAS DE TICKETS ABIERTAS')
+                        print('')
+                    elif opt_2 == 2:
+                        apertura_tickets = False
+                        print('')
+                        print('VENTAS DE TICKETS CERRADAS CON EXITO')
+                        print('')
+                    else:
+                        print('')
+                        break
+                else:
+                    print('')
+                    print('Error, valor introducido no valido')
+                    print('')
         elif opt == 3:
             while True:
                 print('')
@@ -116,7 +136,7 @@ def evento_funciones(bd,msg):
                 else:
                     print('Error, valor introducido no valido')
         elif opt == 4:
-            return bd
+            return bd, apertura_tickets
                                           
 
 

@@ -3,6 +3,7 @@ from utils import*
 from Gestion_eventos import*
 from Gestion_feria import*
 from venta_tickets import*
+from venta_feria import*
 import jsons
 
 
@@ -40,6 +41,7 @@ def main():
             bd, restablecer_bd = crear_bd(bd, bd_api, restablecer_bd)
 
             print('***BIENVENIDO AL SISTEMA DEL SAMAN SHOW***\n')
+            apertura_tickets = True
             while True:
                 while True:
                     opt = validar_numero('Ingrese para acceder:\n1.Gestion de eventos\n2.Venta de tickets\n3.Gestion Feria de comida\n4.Venta de feria de comida\n5.Estadisticas\n6.salir\n--> ')
@@ -50,13 +52,21 @@ def main():
                         print('')
                 if opt == 1:
                     print('')
-                    #Recordar colocar la variable con la validadción de apertura de la tienda de tickets
-                    bd = evento_funciones(bd, msg='Ingrese:\n1.Ver eventos disponibles\n2.Cerrar/Abrir la venta de tickets\n3.Buscar evento\n4.Salir\n--> ')
+                    bd, apertura_tickets = evento_funciones(bd, msg='Ingrese:\n1.Ver eventos disponibles\n2.Cerrar/Abrir la venta de tickets\n3.Buscar evento\n4.Salir\n--> ', apertura_tickets= apertura_tickets)
                 elif opt == 2:
                     print('')
-                    bd = venta_tickets(bd, msg='Ingrese:\n1.Registrar una compra\n2.Salir\n--> ')
+                    if apertura_tickets != False:
+                        bd = venta_tickets(bd, msg='Ingrese:\n1.Registrar una compra\n2.Salir\n--> ')
+                    else:
+                        print('')
+                        print('Lo sentimos, la tienda de tickets se encuentra cerrada en este momento')
+                        print('')
                 elif opt == 3:
+                    print('')
                     bd = feria_funciones(bd, restablecer_bd, msg= 'Ingrese:\n1.Ver prodcutos en el inventario\n2.Eliminar productos\n3.Buscar Producto\n4.Restablecer inventario y menu\n5.Salir\n--> ')
+                elif opt == 4:
+                    print('')
+                    bd = venta_feria(bd, msg="***BIENVENIDO A LA FERIA***\n\nIngrese:\n1.Comprar productos\n2.Salir\n--> ")
                 else:
                     print('')
                     print('***ADIOS***')

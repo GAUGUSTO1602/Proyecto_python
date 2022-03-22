@@ -1,12 +1,12 @@
 from utils import validar_numero, validar_palabra, get_vampire
-from Saman_arena import mostrar_asientos, Asignar_asiento
+from Saman_arena import mostrar_asientos, Asignar_asiento, Resetear_asientos
 
 def venta_tickets(bd,msg):
     
     while True:
-        opt = validar_numero(msg)
 
         while True:
+            opt = validar_numero(msg)
             if 1 <= opt <= 2:
                 break
             else:
@@ -120,6 +120,7 @@ def venta_tickets(bd,msg):
 
                     num_asientos = num_tickets
                     puestos = []
+                    lista_reset = []
                     while True:
                         if num_asientos == 0:
                             break
@@ -132,6 +133,7 @@ def venta_tickets(bd,msg):
                             validar_puesto = Asignar_asiento(fila, columna, value["asientos"].get_asientos_general())
                             if validar_puesto != False:
                                 value["asientos"].set_asientos_general(validar_puesto)
+                                lista_reset.append([fila, columna])
                                 num_asientos -= 1
                                 columna += 1
                                 puesto = letra + str(columna)
@@ -145,6 +147,7 @@ def venta_tickets(bd,msg):
                             validar_puesto = Asignar_asiento(fila, columna, value["asientos"].get_asientos_vip())
                             if validar_puesto != False:
                                 value["asientos"].set_asientos_vip(validar_puesto)
+                                lista_reset.append([fila, columna])
                                 num_asientos -= 1
                                 columna += 1
                                 puesto = letra + str(columna)
@@ -183,7 +186,7 @@ def venta_tickets(bd,msg):
                     print('')
                     print('')
                     print('***Cuenta***')
-                    print('Tickets:')
+                    print('Tickets: {}'.format(num_tickets))
                     if tipo_tickects == 1:
                         print('Ticket general: {}'.format(value["asientos"].get_price_general()))
                         print('IVA: {}'.format(aumento_general)) 
@@ -212,6 +215,12 @@ def venta_tickets(bd,msg):
                             print('Error, valor introducido no valido')
                             print('')
                     if final_opt == 2:
+                        if tipo_tickects == 1:
+                            valor_reset = Resetear_asientos(lista= lista_reset, asiento=value["asientos"].get_asientos_general())
+                            value["asientos"].set_asientos_general(valor_reset)
+                        else:
+                            valor_reset = Resetear_asientos(lista= lista_reset, asiento=value["asientos"].get_asientos_vip())
+                            value["asientos"].set_asientos_vip(valor_reset)
                         print('')
                         print('RECIBO ELIMINADO')
                         print('')

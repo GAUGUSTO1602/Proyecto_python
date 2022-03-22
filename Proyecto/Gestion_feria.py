@@ -21,7 +21,7 @@ def feria_funciones(bd, restablecer_bd, msg):
                         if opt_2 == 1:
                             while True:
                                 for x in range(len(bd["products"]["Comidas"])):
-                                    print(x, bd["products"]["Comidas"][x].get_name())
+                                    print(x + 1, bd["products"]["Comidas"][x].get_name())
                                     print('')
                                 if len(bd["products"]["Comidas"]) == 0:
                                     print('')
@@ -29,11 +29,11 @@ def feria_funciones(bd, restablecer_bd, msg):
                                     print('')
                                     break
                                 opt_3 = validar_numero('Ingrese el numero del producto que desee eliminar:\n--> ')
-                                if opt_3 >= len(bd["products"]["Comidas"]) or opt_3 < 0:
+                                if opt_3-1 > len(bd["products"]["Comidas"]) or opt_3 <= 0:
                                     print('Error, valor introducido no valido')
                                     print('')
                                 else:
-                                    bd["products"]["Comidas"].pop(opt_3)
+                                    bd["products"]["Comidas"].pop(opt_3-1)
                                     break
                         elif opt_2 == 2:
                             while True:
@@ -46,11 +46,11 @@ def feria_funciones(bd, restablecer_bd, msg):
                                     print('')
                                     break
                                 opt_3 = validar_numero('Ingrese el numero del producto que desee eliminar:\n--> ')
-                                if opt_3 >= len(bd["products"]["Bebidas"]) or opt_3 < 0:
+                                if opt_3 -1 > len(bd["products"]["Bebidas"]) or opt_3 <= 0:
                                     print('Error, valor introducido no valido')
                                     print('')
                                 else:
-                                    bd["products"]["Bebidas"].pop(opt_3)
+                                    bd["products"]["Bebidas"].pop(opt_3-1)
                                     break
                         else:
                             break
@@ -127,6 +127,12 @@ def feria_funciones(bd, restablecer_bd, msg):
                     if 1 <= opt_2 <= 2:
                         if opt_2 == 1:
                             bd["products"] = restablecer_bd["products"]
+                            for key, value in bd["products"].items():
+                                for producto in value:
+                                    producto.set_old_amount()
+                                if key == "Bebidas":
+                                    for bebida in value:
+                                        bebida.set_all_old_amount()
                             print('Inventario y menu reestablecidos exitosamente')
                             print('')
                             break

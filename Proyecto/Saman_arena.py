@@ -38,6 +38,16 @@ def Asignar_asiento(fila, columna, asientos):
         asientos[fila][columna] = "X"
         return asientos
 
+def Resetear_asientos(lista, asiento):
+    
+    for elemento in lista:
+        x = elemento[0]
+        j = elemento[1]
+        if "X" in asiento[x][j]:
+            asiento[x][j] = "O"
+    
+    return asiento
+
 class asientos():
     def __init__(self, fila_general, columna_general, fila_vip, columna_vip, asientos_general, asientos_vip, tickets_general, tickets_vip, price_general, price_vip):
         
