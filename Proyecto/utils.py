@@ -2,7 +2,7 @@ import requests
 import itertools as it
 from classes import*
 from Saman_arena import*
-
+va = 0
 
 def make_request(url):
     response = requests.get(url)
